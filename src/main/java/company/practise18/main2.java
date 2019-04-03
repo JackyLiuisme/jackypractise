@@ -20,6 +20,7 @@ public class main2 {
                     count++;
                 }else {
                     break;
+
                 }
             }
             i = j;
