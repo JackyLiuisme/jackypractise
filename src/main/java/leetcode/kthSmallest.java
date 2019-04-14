@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 public class kthSmallest {
@@ -10,6 +11,7 @@ public class kthSmallest {
         head.left.right = new TreeNode(2);
         int n = kthSmallest(head, 1);
         System.out.println(n);
+        HashMap hashMap = new HashMap();
     }
     public static int kthSmallest(TreeNode root, int k) {
         Stack<TreeNode> stack = new Stack<>();
