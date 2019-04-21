@@ -3,6 +3,7 @@ package designParten.proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class MyInovacationHandler implements InvocationHandler {
 
@@ -24,6 +25,7 @@ public class MyInovacationHandler implements InvocationHandler {
     }
 
     public static void main(String[] args) {
+        ReentrantLock lock = new ReentrantLock();
         Service service = new ServiceImpl();
         MyInovacationHandler myInovacationHandler = new MyInovacationHandler(service);
         Service target = (Service) myInovacationHandler.getTarget();
