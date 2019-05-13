@@ -28,8 +28,53 @@ public class Convert {
     }
 
 
-    public TreeNode UnrecursiveConvert(TreeNode pRootOfTree){
+    public TreeNode UnrecursiveConvert(TreeNode pRootOfTree) {
+        TreeNode head = null;
+        TreeNode pHead = null;
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || pRootOfTree != null) {
+            while (pRootOfTree != null) {
+                stack.push(pRootOfTree);
+                pRootOfTree = pRootOfTree.left;
+            }
+            pRootOfTree = stack.pop();
+            if (head == null) {
+                head = pRootOfTree;
+                pHead = pRootOfTree;
+            } else {
+                head.right = pRootOfTree;
+                pRootOfTree.left = head;
+                head = head.right;
+            }
 
+            pRootOfTree = pRootOfTree.right;
+
+        }
+        return pHead;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
        TreeNode head = null;
        Stack<TreeNode> stack = new Stack<>();
        while (!stack.isEmpty() || pRootOfTree != null){
@@ -47,6 +92,6 @@ public class Convert {
            }
            pRootOfTree = pRootOfTree.left;
        }
-       return head;
+       return head;*/
     }
-}
+

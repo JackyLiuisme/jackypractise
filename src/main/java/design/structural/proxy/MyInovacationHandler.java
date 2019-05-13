@@ -1,4 +1,4 @@
-package designParten.proxy;
+package design.structural.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

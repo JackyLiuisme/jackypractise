@@ -1,6 +1,7 @@
 package offer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 //todo
@@ -12,30 +13,31 @@ public class Permutation {
             System.out.println(s);
         }
     }
-    private static ArrayList<String > Permutation(String str){
-        ArrayList<String> arrayList = new ArrayList<String>();
-        HashSet<String> set = new HashSet<String>();
-        char[] array = str.toCharArray();
-        sort(set,array,0);
+    public static ArrayList<String > Permutation(String str) {
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        HashSet<String> set = new HashSet<>();
+        Sort(str.toCharArray(),set ,0);
         arrayList.addAll(set);
+        Collections.sort(arrayList);
         return arrayList;
     }
-    private static void sort(HashSet<String> set , char[] array,int k){
-        if (k == array.length){
+    public static void Sort(char[] array, HashSet set,int k){
+        if (k == array.length-1){
             set.add(new String(array));
         }
-        for (int i = k; i < array.length; i++){
+        for (int i = k; i  < array.length; i++){
             swap(array,i,k);
-            sort(set,array,k+1);
-            swap(array,k,i);
+            Sort(array,set,k+1);
+            swap(array,i,k);
         }
-    }
-    private static void swap(char [] array,int left ,int right){
-            char temp = array[left];
-            array[left] = array[right];
-            array[right] = temp;
-    }
 
+    }
+    public static void swap(char [] chars, int left, int right){
+        char temp = chars[left];
+        chars[left] = chars[right];
+        chars[right] = temp;
+    }
 
 
 /*    public static ArrayList<String> Permutation(String str) {

@@ -1,4 +1,4 @@
-package designParten.proxy;
+package design.structural.proxy;
 
 public class Pig {
     private static PigLeg PigLeg;
