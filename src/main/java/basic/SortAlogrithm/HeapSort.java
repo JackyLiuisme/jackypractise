@@ -16,7 +16,9 @@ public class HeapSort {
         }
         for (int i = array.length-1; i >= 0; i--){
             System.out.println(array[0]);
+            int temp = array[0];
             array[0] = array[i];
+            array[i] = temp;
             adjust(array,0,i-1);
         }
     }
