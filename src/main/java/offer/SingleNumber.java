@@ -11,8 +11,8 @@ package offer;
  * Output: 4
  */
 public class SingleNumber {
-    public int singleNumber(int[] nums) {
-        int count = 1,num = nums[0];
+    public static int singleNumber(int[] A) {
+      /*  int count = 1,num = nums[0];
         for (int  i = 1; i < nums.length; i++){
             if(count == 0){
                 num = nums[i];
@@ -24,7 +24,19 @@ public class SingleNumber {
                     count--;
                 }
             }
-        }
-        return num;
+        }*/
+      if (A.length == 0){
+          return 0;
+      }
+      int temp = A[0];
+       for (int i = 1; i < A.length; i++){
+           temp = temp ^ A[i];
+       }
+     return temp;
+    }
+
+    public static void main(String[] args) {
+        int [] array = {3,3,2,1,1,5,5};
+        System.out.println(singleNumber(array));
     }
 }
