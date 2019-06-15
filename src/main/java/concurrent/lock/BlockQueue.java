@@ -9,7 +9,10 @@ public class BlockQueue {
     Condition full = lock.newCondition();
     Object[] array;
     int length,count,removCount,addCount;
-    BlockQueue(int length){
+    int size(){
+        return count;
+    }
+    public BlockQueue(int length){
         this.length = length;
         array = new Object[length];
     }
@@ -19,6 +22,7 @@ public class BlockQueue {
 
 
             while (count == length) {
+                System.out.println("queue is full");
                 full.await();
             }
             if (++addCount == array.length){
@@ -37,6 +41,7 @@ public class BlockQueue {
         lock.lock();
         try{
             while (count == 0){
+                System.out.println("queue is empty");
                 empty.await();
             }
             Object item =array[removCount];
@@ -67,7 +72,7 @@ public class BlockQueue {
             new Thread(()-> {
                 try {
                     Object o = blockQueue.get();
-                    System.out.println(o);
+                    System.out.println(blockQueue.size());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
