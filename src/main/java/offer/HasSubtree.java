@@ -11,7 +11,46 @@ public class HasSubtree {
 
     }
     public boolean HasSubtree(TreeNode root1,TreeNode root2) {
-        boolean result = false;
+        boolean isTrue = false;
+        if (root1.val == root2.val){
+            isTrue = isSame(root1,root2);
+        }
+        if (!isTrue) {
+           isTrue = HasSubtree(root1.left, root2) || HasSubtree(root1.right, root2);
+        }
+        return isTrue;
+    }
+    public boolean isSame(TreeNode left,TreeNode right){
+
+        if (left == null && right != null){
+            return false;
+        }
+        if (right == null){
+            return true;
+        }
+        if (right.val == left.val){
+            return isSame(left.right,right.right) && isSame(left.left,right.left);
+        }
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* boolean result = false;
         if (root1 == null || root2 == null){
             return false;
         }
@@ -37,6 +76,6 @@ public class HasSubtree {
         }
         return isRight(root1.left,root2.left) && isRight(root1.right,root2.right);
 
-    }
+    }*/
 
 }

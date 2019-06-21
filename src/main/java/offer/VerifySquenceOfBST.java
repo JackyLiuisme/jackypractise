@@ -1,11 +1,34 @@
 package offer;
 
-import java.util.Arrays;
-
+/**
+ * 判断一个数组是不是二叉搜索树后序遍历的结果
+ */
 public class VerifySquenceOfBST {
-    public static boolean VerifySquenceOfBST(int [] sequence) {
+    public static boolean isTure(int[] sequence, int start, int end){
+        if (start >= end){
+            return true;
+        }
+            int count = 0;
+            while (sequence[count] < sequence[end]){
+                count++;
+            }
+            int temp = count;
 
-        if (sequence.length == 0 || sequence.length == 1){
+            for (int i = count; i < end; i++){
+                if (sequence[i] < sequence[end]){
+                    return false;
+                }
+            }
+            return isTure(sequence,start,count-1) && isTure(sequence,count,end-1);
+    }
+    public static boolean VerifySquenceOfBST(int [] sequence) {
+            if (sequence.length == 0 || sequence.length == 1){
+                return true;
+            }
+            return isTure(sequence,0,sequence.length-1);
+
+
+  /*      if (sequence.length == 0 || sequence.length == 1){
             return true;
         }
 
@@ -21,7 +44,7 @@ public class VerifySquenceOfBST {
                 i++;
             }
             return VerifySquenceOfBST(Arrays.copyOfRange(sequence,0,count))
-                    ||  VerifySquenceOfBST(Arrays.copyOfRange(sequence,count,sequence.length-1));
+                    ||  VerifySquenceOfBST(Arrays.copyOfRange(sequence,count,sequence.length-1));*/
 
     }
 

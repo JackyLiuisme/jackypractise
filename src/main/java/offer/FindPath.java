@@ -18,6 +18,29 @@ public class FindPath {
         }
         target -= root.val;
         list.add(root.val);
+        if (root.left == null && root.left == null && target == 0){
+            lists.add(new ArrayList<>(list));
+        }
+
+        FindPath(root.left,target);
+        FindPath(root.right,target);
+        list.remove(list.size()-1);
+        return lists;
+
+
+
+
+
+
+
+
+
+    }
+/*        if (root == null){
+            return lists;
+        }
+        target -= root.val;
+        list.add(root.val);
         if (root.right == null && root.left == null && target == 0 ){
             lists.add(new ArrayList<>(list));
         }
@@ -25,5 +48,5 @@ public class FindPath {
         FindPath(root.right,target);
         list.remove(list.size()-1);
         return lists;
-    }
+    }*/
 }

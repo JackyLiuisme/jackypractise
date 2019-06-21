@@ -5,29 +5,33 @@ import java.util.Scanner;
 public class main2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int first = 1, second = 1, third = 1,min1 = 1,min2 = 1;
         while (scanner.hasNext()){
-            String next = scanner.nextLine();
-            System.out.println(next);
-        }
-        /*String s = scanner.nextLine();
-        char[] chars = s.toCharArray();
-        int max = 0,i,j;
-        for (i = 0; i < chars.length; ){
-            int count = 0;
-            for ( j = i+1; j < chars.length; j++){
+            int temp = scanner.nextInt();
+            if (temp > 0) {
+                if (temp > first) {
 
-                if (chars[j] != chars[j-1]){
-                    count++;
-                }else {
-                    break;
+                    third = second;
+                    second = first;
+                    first = temp;
 
+                } else if (temp > second) {
+                    third = second;
+                    second = temp;
+
+                } else if (temp > third) {
+                    third = temp;
+                }
+            }else {
+                if ( temp < min1) {
+                    min2 = min1;
+                    min1 = temp;
+                } else if (temp < 0 && temp < min2) {
+                    min2 = temp;
                 }
             }
-            i = j;
-            if (max < count){
-                max = count;
-            }
         }
-        System.out.println(max);*/
+        int result = first*second*third > min1*min2*first ? first*second*third:min1*min2*first;
+
     }
 }
