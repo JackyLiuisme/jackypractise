@@ -9,7 +9,6 @@ public class Runnerabletest {
             }
         };
         String str = "abc";
-
         int c = str.indexOf("cd");
         testRunner run = Integer::valueOf;
                 //code -> Integer.valueOf(code);

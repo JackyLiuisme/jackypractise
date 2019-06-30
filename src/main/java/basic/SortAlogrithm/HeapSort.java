@@ -11,19 +11,47 @@ public class HeapSort {
         }
     }
     public static void heapSort(int [] array){
-        for (int i = array.length / 2 - 1; i >= 0; i--){
-            adjust(array,i,array.length-1);
-        }
-        for (int i = array.length-1; i >= 0; i--){
-            System.out.println(array[0]);
-            int temp = array[0];
-            array[0] = array[i];
-            array[i] = temp;
-            adjust(array,0,i-1);
-        }
+           for (int i = array.length/2 -1 ; i >= 0; i--){
+               adjust(array,i, array.length-1);
+           }
+
+            for (int i = array.length-1; i >= 0; i--){
+                System.out.println(array[0]);
+                int temp = array[0];
+                array[0] = array[i];
+                array[i] = temp;
+                adjust(array,0,i-1);
+            }
     }
-    public static void adjust(int [] array , int pos ,int length){
-        int temp = array[pos];
+    public static void adjust(int [] array, int pos, int length){
+        int temp = array[pos],chirld;
+        for (; pos * 2 + 1 <= length; pos = chirld){
+            chirld = pos * 2 + 1;
+            if (chirld < length && array[chirld] < array[chirld+1]) {
+                chirld++;
+            }
+            if (temp < array[chirld]){
+                array[pos] = array[chirld];
+            }else {
+                break;
+            }
+
+        }
+        array[pos] = temp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*  int temp = array[pos];
         int chrild = 0;
         for (;pos*2 + 1 <= length; pos = chrild){
             chrild = pos * 2 + 1;
@@ -36,6 +64,6 @@ public class HeapSort {
                 break;
             }
         }
-        array[pos] = temp;
+        array[pos] = temp;*/
     }
 }

@@ -13,28 +13,35 @@ import java.util.PriorityQueue;
  * {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}
  */
 public class MaxWindow {
-    ArrayList<Integer> list = new ArrayList<>();
-    PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return o2.compareTo(o1);
+    public static void main(String[] args) {
+        int [] num = {2,3,4,2,6,2,5,1};
+        ArrayList<Integer> list = maxInWindows(num, 3);
+        for (Integer n :
+                list) {
+            System.out.println(n);
         }
-    });
-    public ArrayList<Integer> maxInWindows(int [] num, int size){
-        if (num == null || num.length == 0 || size > num.length || size ==0){
+    }
+    public static ArrayList<Integer> maxInWindows(int [] num, int size){
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        ArrayList<Integer> list = new ArrayList<>();
+        if (num.length < size){
             return list;
         }
-
-        for (int i  = 0 ; i <  num.length - size ; i++){
-            int count = 0;
-            while (count < size){
-                queue.add(num[i+count]);
-                count++;
-            }
-            list.add(queue.poll());
-            queue.clear();
+        for (int i = 0; i < size; i++){
+            queue.offer(num[i]);
         }
+        int count = 0;
+        for (int i = size; i < num.length; i++){
+            list.add(queue.peek());
+            queue.remove(num[count++]);
+            queue.offer(num[i]);
+        }
+        list.add(queue.peek());
         return list;
     }
-
 }
