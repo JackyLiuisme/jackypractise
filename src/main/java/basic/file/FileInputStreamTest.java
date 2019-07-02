@@ -20,6 +20,9 @@ public class FileInputStreamTest {
         BufferedReader reader = new BufferedReader(inputStream);
 
         String s = null;
+        while ((s = reader.readLine()) != null){
+
+        }
         while ( ( s = reader.readLine()) != null){
             if (s.equals("exit")){
                 System.exit(1);
