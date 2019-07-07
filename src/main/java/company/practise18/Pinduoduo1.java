@@ -1,7 +1,6 @@
 package company.practise18;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Pinduoduo1 {
     public static void main(String[] args) {
@@ -21,7 +20,7 @@ public class Pinduoduo1 {
         st[] nx = new st[n];
         {
             for (int i = 0; i < n; i++){
-                nx[i] = new st();
+                nx[i] =new  Pinduoduo1.st();
             }
         }
         st[] ny = new st[n];
@@ -42,7 +41,30 @@ public class Pinduoduo1 {
                 nx[j].setOri( num[j]);
 
             }
-            Arrays.sort(nx, 0, n);
+            /**
+             *  public int compareTo(st o) {
+             *         if (this.consume != o.consume){
+             *             return this.consume - o.consume;
+             *         }
+             *         if (this.num < o.num){
+             *             return this.num - o.num;
+             *         }
+             *
+             *         return   o.ori - o.target;
+             *     }
+             */
+            Arrays.sort(nx, 0, n, new Comparator<st>() {
+                @Override
+                public int compare(st o1, st o2) {
+                    if (o1.consume != o2.consume){
+                        return o1.consume - o2.consume;
+                    }
+                    if (o1.num < o2.num){
+                        return o1.num - o2.num;
+                    }
+                    return o1.ori - o2.target;
+                }
+            });
 
             tmp = 0;
 
@@ -72,6 +94,40 @@ public class Pinduoduo1 {
         for(int j=0;j<n;++j) {
 
             System.out.print(res[j]);
+        }
+    }
+    public static class st{
+        public int consume,num,target,ori;
+        public int getConsume() {
+            return consume;
+        }
+
+        public void setConsume(int consume) {
+            this.consume = consume;
+        }
+
+        public void setNum(int num) {
+            this.num = num;
+        }
+
+        public void setTarget(int target) {
+            this.target = target;
+        }
+
+        public void setOri(int ori) {
+            this.ori = ori;
+        }
+
+        public int getNum() {
+            return num;
+        }
+
+        public int getTarget() {
+            return target;
+        }
+
+        public int getOri() {
+            return ori;
         }
     }
 }

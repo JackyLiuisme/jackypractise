@@ -5,47 +5,86 @@ import java.util.Scanner;
 public class Pinduoduo2 {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int [] array = new int[n+1];
-        int sum=0 , max=0 ,i;
-        for ( i = 1; i <= n; i++ ){
-            int temp = scanner.nextInt();
-            array[i] = temp;
-            sum += temp;
-            max = Math.max(max,temp);
-        }
-        if (max - (sum - max) > 1){
-            System.out.println("-");
-        }else {
-            int temp = 0;
-            while (sum > 0){
-                int c = 0;
+        Scanner input =new Scanner(System.in);
 
-                for (int j = 1; j <= n; j++){
-                    while (array[j] == 0 && j + 1 <= n){
-                        j++;
-                    }
-                    if (j + 1 <= n && j == temp){
-                        c++;
-                        j++;
-                    }else if (j + 1 > n){
-                        break;
-                    }
-                    if (array[j] != 0) {
+        int N=input.nextInt();
 
-                        System.out.print(j + " ");
-                        array[j]--;
-                        temp = j;
-                        c++;
-                        sum--;
-                        if (c == 2) {
-                            break;
-                        }
-                    }
-                }
+        int[] nums=new int[N];
+
+        int M=0;
+        int max = -1;
+        for(int i = 0; i <N ; i++) {
+
+            nums[i]=input.nextInt();
+
+            M+=nums[i];
+            if (nums[i] > max){
+                max = nums[i];
             }
         }
 
+        if (max > (M - max)){
+            System.out.println("-");
+            return;
+        }
+
+        StringBuffer res=new StringBuffer();
+
+        int count=M;
+
+        int pre=-1;
+
+        for(int i=0;i<M;i++){
+
+            boolean flag=false;
+
+            for(int k=0;k<N;k++){
+
+                if(nums[k]>count/2){   //判断是否有树大于剩余的一半
+
+                    res.append(k+1);
+
+                    res.append(" ");
+
+                    nums[k]--;
+
+                    pre=k+1;
+
+                    flag=true;
+
+                    count--;
+
+                    break;
+
+                }
+
+            }
+
+            if(flag==true) continue;
+
+            int j=0;
+
+            while((j < N) &&(nums[j]==0||(j+1)==pre)){
+
+                j++;
+
+            }
+
+            nums[j]--;
+
+            pre=j+1;
+
+            res.append(j+1);
+
+            res.append(" ");
+
+            count--;
+
+        }
+
+        System.out.println(res.toString().trim());
+
     }
+
+
 }

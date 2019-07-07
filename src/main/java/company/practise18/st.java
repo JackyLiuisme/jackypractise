@@ -1,6 +1,6 @@
 package company.practise18;
 
-public class st implements Comparable<st>{
+public class st{
     public int consume,num,target,ori;
 
     public int getConsume() {
@@ -35,7 +35,7 @@ public class st implements Comparable<st>{
         return ori;
     }
 
-    @Override
+/*    @Override
     public int compareTo(st o) {
         if (this.consume != o.consume){
             return this.consume - o.consume;
@@ -44,6 +44,6 @@ public class st implements Comparable<st>{
             return this.num - o.num;
         }
 
-        return   o.ori - this.target ;
-    }
+        return   o.ori - o.target;
+    }*/
 }
