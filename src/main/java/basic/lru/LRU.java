@@ -10,9 +10,9 @@ public class LRU <K,V>{
     public LRU(int size) {
         SIZE = size;
 
-        int capacity = (int) (Math.ceil(SIZE / LOAD_FACTORY) + 1);
+    //    int capacity = (int) (Math.ceil(SIZE / LOAD_FACTORY) + 1);
 
-        hashMap = new LinkedHashMap<K,V>(capacity,LOAD_FACTORY,true){
+        hashMap = new LinkedHashMap<K,V>(SIZE,LOAD_FACTORY,true){
            @Override
             protected boolean removeEldestEntry(Map.Entry<K,V> entry){
                return size() > SIZE;

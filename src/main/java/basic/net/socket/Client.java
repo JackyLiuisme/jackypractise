@@ -1,4 +1,4 @@
-package basic.net;
+package basic.net.socket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,35 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = null;
         PrintWriter printWriter = null;
+        Socket socket = new Socket("localhost", 2000);
+        printWriter = new PrintWriter(socket.getOutputStream(),true);
+        printWriter.println("hello");
+
+        bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        while (true){
+            String str = bufferedReader.readLine();
+            if (str == null){
+                break;
+            }
+            System.out.println(str);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* PrintWriter printWriter = null;
         BufferedReader bufferedReader = null;
         try {
             Socket socket = new Socket("localhost",2000);
@@ -28,6 +56,6 @@ public class Client {
         }finally {
             bufferedReader.close();
             printWriter.close();
-        }
+        }*/
     }
 }

@@ -14,6 +14,7 @@ public class Convert {
         if (pRootOfTree == null){
             return null;
         }
+
         Convert(pRootOfTree.left);
         if (head == null){
             head = pRootOfTree;

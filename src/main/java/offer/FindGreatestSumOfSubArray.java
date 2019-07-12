@@ -7,13 +7,13 @@ public class FindGreatestSumOfSubArray {
         System.out.println(i);
     }
     public static int FindGreatestSumOfSubArray(int[] array) {
-        int []temp = new int[array.length];
-        int max = 0;
-        temp[0] = array[0];
-        for (int i = 1; i < array.length; i++){
-            temp[i] = array[i] +(temp[i-1] > 0 ? temp[i-1] : 0);
-            max = Math.max(max,temp[i]);
-        }
-        return max;
+       int [] dp = new int[array.length];
+       int result = 0,temp = 0;
+       dp[0] = array[0];
+       for (int i = 1; i < array.length; i++){
+           dp[i] = Math.max(array[i],dp[i-1] + array[i]);
+           result = Math.max(result,dp[i]);
+       }
+       return result;
     }
 }

@@ -1,5 +1,6 @@
 package basic.Enum;
 
+
 public enum TestEnum {
     MAN,WOMAN;
     private String name;

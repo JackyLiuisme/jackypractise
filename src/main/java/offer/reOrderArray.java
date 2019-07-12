@@ -1,25 +1,26 @@
 package offer;
 
-import java.util.Stack;
-
 public class reOrderArray {
-    public void reOrderArray(int [] array) {
-        Stack<Integer> stack = new Stack<Integer>();
-        int [] temp = new int[array.length];
-        int count =0;
-        for (int i = 0; i < array.length; i++){
-            if (array[i] % 2 == 0){
-                stack.push(array[i]);
-            }else {
-                temp[count++] = array[i];
-            }
-        }
-        int n = array.length - 1;
-        while (!stack.isEmpty()){
-            temp[n--] = stack.pop();
-        }
-        for (int i = 0; i < array.length; i++){
-            array[i] = temp[i];
+    public static void main(String[] args) {
+        int [] nums = {2,3,1,5,4,6,7,8,10};
+        reOrderArray(nums);
+    }
+    public static void reOrderArray(int [] array) {
+       int left = 0,right = array.length -1;
+       while (left < right){
+           while ( array[left] % 2 == 1 && left < right){
+               left++;
+           }
+           while (array[right] % 2 == 0 && left < right){
+               right--;
+           }
+           int temp = array[left];
+           array[left] = array[right];
+           array[right] = temp;
+       }
+        for (int n :
+                array) {
+            System.out.println(n);
         }
     }
 }

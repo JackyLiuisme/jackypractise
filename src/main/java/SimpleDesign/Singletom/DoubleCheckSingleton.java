@@ -1,8 +1,10 @@
-package design.creational.singelton;
+package SimpleDesign.Singletom;
 
 public class DoubleCheckSingleton {
-    private volatile static DoubleCheckSingleton instance =null;
-    private DoubleCheckSingleton(){}
+    private DoubleCheckSingleton(){
+    }
+
+    private static volatile DoubleCheckSingleton instance;
 
     public DoubleCheckSingleton getInstance(){
         if (instance == null){

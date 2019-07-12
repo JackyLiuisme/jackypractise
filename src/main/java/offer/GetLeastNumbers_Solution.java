@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class GetLeastNumbers_Solution {
     public static void main(String[] args) {
         int []array = {4,5,1,6,2,7,3,8};
-        ArrayList<Integer> list = GetLeastNumbers_Solution(array, 4);
+        ArrayList<Integer> list = GetLeastNumbers_Solution(array, 5);
     }
     static ArrayList<Integer> GetLeastNumbers_Solution(int [] array, int num){
         partitionSort(array,0,array.length-1,num);
@@ -24,7 +24,7 @@ public class GetLeastNumbers_Solution {
                 // 说明已经排序好了K个最大/最小的数，但是之间的顺序是不确定的
                 return;
             }else if (pointKey < K -1) {
-                partitionSort(nums, pointKey + 1, high, K);
+                partitionSort(nums, pointKey + 1, high, K-pointKey);
 
             }else {
                 partitionSort(nums, low, pointKey - 1, K);
