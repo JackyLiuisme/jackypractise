@@ -13,35 +13,45 @@ public class movingCount {
      static int index = 0;
     public static int movingCount(int threshold, int rows, int cols)
     {
-        int [][] flag = new int[rows][cols];
+        boolean [][] flag = new boolean[rows][cols];
 
        return judge(flag,threshold,0,0,rows,cols);
     }
 
-    public static int judge(int[][] flag,int threshold,int i,int j,int row,int cols){
-        if (i < 0 || j < 0 || j >= cols || i >= row|| (split(i)+split(j)) > threshold || flag[i][j]==1){
+    public static int judge(boolean[][] flag,int threshold,int i,int j,int row,int cols){
+
+        if (i < 0 || j < 0 || i >= row || j >= cols || flag[i][j] || (split(i) + split(j) > threshold)){
             return 0;
         }
 
-        flag[i][j] = 1;
         index++;
-             judge(flag,threshold,i+1,j,row,cols);
-                    judge(flag,threshold,i-1,j,row,cols);
-                judge(flag,threshold,i,j+1,row,cols);
-        judge(flag,threshold,i,j-1,row,cols);
-             return index;
+        flag[i][j] = true;
+         judge(flag,threshold,i+1,j,row,cols);
+        judge(flag,threshold,i-1,j,row,cols);
+        judge(flag,threshold,i,j+1,row,cols);
+        judge(flag,threshold,i,j-1,row,cols) ;
+
+        return index;
+
     }
+
 
     public static int split(int num){
-        int count = 0;
-        while (num != 0){
-            count += num % 10;
-            num = num / 10;
+        int temp = 0;
+        while (num > 0){
+            temp += num % 10;
+            num /= 10;
         }
-        return count;
+        return temp;
     }
 
+    public static void main(String[] args) {
+        int i = movingCount(15,20,20);
+         int n = split(20);
+        System.out.println(i);
+        System.out.println(n);
 
+    }
 
 
 
@@ -90,9 +100,5 @@ public class movingCount {
         return count;
     }
 
-    public static void main(String[] args) {
-        int i = movingCount(5,10,10);
-      //  int i = split(110);
-        System.out.println(i);
-    }
+
 }

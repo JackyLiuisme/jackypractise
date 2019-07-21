@@ -36,8 +36,31 @@ package offer;
  * Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 public class intToRoman {
+    public static void main(String[] args) {
+        String s = intToRoman(9);
+        System.out.println(s);
+    }
     public static String intToRoman(int num) {
         int [] nums = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String [] str = {"M","MC","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder result = new StringBuilder();
+        for (int i = 0;  i< nums.length; i++){
+            while (num >= nums[i]){
+                num -= nums[i];
+                result.append(str[i]);
+            }
+        }
+        return result.toString();
+
+
+
+
+
+
+
+
+
+     /*   int [] nums = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
         String [] str = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
         String result = "";
         int i = 0;
@@ -52,11 +75,8 @@ public class intToRoman {
             }
         }
 
-        return result;
+        return result;*/
     }
 
-    public static void main(String[] args) {
-        String s = intToRoman(9);
-        System.out.println(s);
-    }
+
 }

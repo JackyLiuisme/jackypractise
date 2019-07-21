@@ -6,40 +6,40 @@ import java.util.Stack;
 
 public class KthNode {
     int index = 0;
-    TreeNode kthNode(TreeNode root,int k){
-        if (root != null){
-            TreeNode node = kthNode(root.left, k);
+    TreeNode kthNode(TreeNode pRoot,int k){
+        if (pRoot != null){
+            TreeNode node = kthNode(pRoot.left, k);
             if (node != null){
                 return node;
             }
             index++;
             if (index == k){
-                return root;
+                return pRoot;
             }
-            node = kthNode(root.right,k);
+            node = kthNode(pRoot.right,k);
             if (node != null){
                 return node;
             }
         }
         return null;
     }
-    public int kthSmallest(TreeNode root, int k) {
+    public TreeNode kthSmallest(TreeNode pRoot, int k) {
 
         Stack<TreeNode> stack = new Stack<>();
         int index = 0;
-        while (!stack.isEmpty() || root !=null){
-            while (root != null){
-                stack.push(root);
-                root = root.left;
+        while (!stack.isEmpty() || pRoot !=null){
+            while (pRoot != null){
+                stack.push(pRoot);
+                pRoot = pRoot.left;
             }
-            root = stack.pop();
+            pRoot = stack.pop();
             index++;
             if (index == k){
-                return root.val;
+                return pRoot;
             }
-            root = root.right;
+            pRoot = pRoot.right;
 
         }
-        return 0;
+        return null;
     }
     }

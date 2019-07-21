@@ -1,14 +1,11 @@
 package basic.net.netty;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.util.AttributeKey;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -18,8 +15,27 @@ public class Client {
     private static final String HOST = "127.0.0.1";
     private static final int PORT = 8000;
     public static void main(String[] args) {
+
+        NioEventLoopGroup work = new NioEventLoopGroup();
+        Bootstrap bootstrap = new Bootstrap();
+         bootstrap.group(work).channel(NioSocketChannel.class)
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 1024).
+                 option(ChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.TCP_NODELAY, true).
+                 handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new FirstClientHandler());
+                    }
+                });
+        bootstrap.connect(HOST,PORT);
+
+
+
+
+
+/*
         NioEventLoopGroup workGroup = new NioEventLoopGroup();
-        NioEventLoopGroup bossGroup = new NioEventLoopGroup();
         final AttributeKey<Object> clientKey = AttributeKey.newInstance("clientKey");
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(workGroup).channel(NioSocketChannel.class).handler(new ChannelInboundHandlerAdapter(){
@@ -37,7 +53,7 @@ public class Client {
                         ch.pipeline().addLast(new FirstClientHandler());
                     }
                 });
-        connect(bootstrap,HOST,PORT,MAX_RETRY);
+        connect(bootstrap,HOST,PORT,MAX_RETRY);*/
 
     }
 

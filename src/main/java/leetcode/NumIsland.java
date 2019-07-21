@@ -17,12 +17,39 @@ Input:
 00011
  */
 public class NumIsland {
+    public static void main(String[] args) {
 
+    }
         private int n;
         private int m;
 
         public int numIslands(char[][] grid) {
             int count = 0;
+            n = grid.length;
+            m = grid[0].length;
+            for (int i = 0; i < grid.length; i++){
+                for (int j = 0; j < grid[0].length; j++){
+                        if (grid[i][j] != '0'){
+                            putToZero(grid,i,j);
+                            count++;
+                        }
+                }
+            }
+            return count;
+
+        }
+
+    private void putToZero(char[][] grid, int i, int j) {
+            if (grid[i][j] == '0' || i < 0 || j < 0 || i >= grid.length || j >= grid[0].length){
+                return;
+            }
+            grid[i][j] = '0';
+            putToZero(grid,i,j-1);
+            putToZero(grid,i+1,j);
+            putToZero(grid,i,j+1);
+            putToZero(grid,i-1,j);
+    }
+          /*  int count = 0;
             n = grid.length;
             if (n == 0) return 0;
             m = grid[0].length;
@@ -44,5 +71,5 @@ public class NumIsland {
             DFSMarking(grid, i - 1, j);
             DFSMarking(grid, i, j + 1);
             DFSMarking(grid, i, j - 1);
-        }
+        }*/
     }

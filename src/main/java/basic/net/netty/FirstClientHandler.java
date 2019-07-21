@@ -5,7 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.nio.charset.Charset;
-import java.util.Date;
 
 /**
  * @author chao.yu
@@ -14,6 +13,28 @@ import java.util.Date;
  */
 public class FirstClientHandler extends ChannelInboundHandlerAdapter {
     @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        ByteBuf message = (ByteBuf) msg;
+        System.out.println("has readed: "+ ((ByteBuf) msg).toString(Charset.forName("utf-8")));
+
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("客户端写出数据");
+        ByteBuf aByte = getByte(ctx);
+        ctx.writeAndFlush(aByte);
+    }
+
+    private ByteBuf getByte(ChannelHandlerContext ctx) {
+        ByteBuf buffer = ctx.alloc().buffer();
+        byte[] bytes = "hello,world".getBytes(Charset.forName("utf-8"));
+        buffer.writeBytes(bytes);
+        return buffer;
+    }
+
+
+    /*@Override
     public void channelActive(ChannelHandlerContext ctx) {
         System.out.println(new Date() + ": 客户端写出数据");
 
@@ -25,7 +46,7 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
     }
 
     private ByteBuf getByteBuf(ChannelHandlerContext ctx) {
-        byte[] bytes = "你好，闪电侠!".getBytes(Charset.forName("utf-8"));
+        byte[] bytes = "HELLO,WORLD!".getBytes(Charset.forName("utf-8"));
 
         ByteBuf buffer = ctx.alloc().buffer();
 
@@ -40,5 +61,5 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
         ByteBuf byteBuf = (ByteBuf) msg;
 
         System.out.println(new Date() + ": 客户端读到数据 -> " + byteBuf.toString(Charset.forName("utf-8")));
-    }
+    }*/
 }

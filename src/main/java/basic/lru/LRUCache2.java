@@ -48,11 +48,13 @@ public class LRUCache2<K,V> {
     }
 
     public static void main(String[] args) {
-        LRUCache2<String,String> lru = new LRUCache2<>(4);
-        lru.put("C", null);
-        lru.put("A", null);
-        lru.put("D", null);
-        String c = lru.get("C");
+        LRUCache2<String,Integer> lru = new LRUCache2<>(4);
+        lru.put("C", 1);
+        lru.put("A", 2);
+        lru.put("D", 3);
+        lru.put("C",4);
+        System.out.println(lru);
+        Integer c = lru.get("C");
         lru.put("B", null);
         lru.put("E", null);
 

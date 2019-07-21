@@ -3,9 +3,20 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * intput Input: "25525511135"
+ * Output: ["255.255.11.135", "255.255.111.35"]
+ */
 public class RestoreIpAddresses {
-
-    public List<String> restoreIpAddresses(String s) {
+    public static void main(String[] args) {
+        String str = "25525511135";
+        List<String> list = restoreIpAddresses(str);
+        for (String string : list
+             ) {
+            System.out.println(string);
+        }
+    }
+    public static List<String> restoreIpAddresses(String s) {
         List<String> result = new ArrayList<>();
         int len = s.length();
         for (int i = 0; i < 4 && i < len - 2; i++) {
@@ -24,7 +35,7 @@ public class RestoreIpAddresses {
         return result;
     }
 
-    private boolean isValid(String s) {
+    private static boolean isValid(String s) {
         if (s.length() > 3 || s.length() == 0 || (s.charAt(0) == '0' && s.length() > 1) || Integer.parseInt(s) > 255) {
             return false;
         }
