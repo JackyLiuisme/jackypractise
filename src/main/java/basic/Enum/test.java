@@ -13,7 +13,7 @@ public class test {
     }
     public static void main(String[] args) {
         TestEnum man;
-       man = TestEnum.valueOf("lllMAN");
+       man = TestEnum.valueOf("hahhMAN");
         man.setName("bitch");
         TestEnum.MAN.setName("bbbb");
         System.out.println(man.getName());
