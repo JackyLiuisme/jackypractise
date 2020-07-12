@@ -6,5 +6,7 @@ public class test {
         man = TestEnum.valueOf("MAN");
         man.setName("bitch");
         System.out.println(man.toString());
+
+        System.out.println("hahha");
     }
 }
