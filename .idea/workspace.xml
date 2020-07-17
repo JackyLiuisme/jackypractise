@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4caf6c49-3ba9-404d-b69c-addacbc24693" name="Default Changelist" comment="" />
+
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -275,6 +276,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="6730000" />
+
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -376,6 +378,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/src/main/java/basic/Enum/TestEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -394,5 +397,6 @@
         </state>
       </provider>
     </entry>
+
   </component>
 </project>
