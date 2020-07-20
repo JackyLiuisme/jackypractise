@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4caf6c49-3ba9-404d-b69c-addacbc24693" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/smartfox/common_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/smartfox/common_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="6060">
-              <caret line="425" column="12" selection-start-line="425" selection-start-column="12" selection-end-line="425" selection-end-column="12" />
+              <caret line="443" column="12" selection-start-line="443" selection-start-column="12" selection-end-line="443" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -223,6 +224,24 @@
               <item name="basic" type="462c0819:PsiDirectoryNode" />
               <item name="Enum" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="jackypractise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jackypractise" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="enumm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jackypractise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jackypractise" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="file" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -232,7 +251,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1594980882831" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1595206834584" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -287,7 +306,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7855000" />
+    <option name="totallyTimeSpent" value="9670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -403,7 +422,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6060">
-          <caret line="425" column="12" selection-start-line="425" selection-start-column="12" selection-end-line="425" selection-end-column="12" />
+          <caret line="443" column="12" selection-start-line="443" selection-start-column="12" selection-end-line="443" selection-end-column="12" />
         </state>
       </provider>
     </entry>
