@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SmartFoxWorkToolsProjectState">
-    <option name="branch" value="master" />
+    <option name="branch" value="localpractise" />
     <option name="gitUrl" value="https://github.com/JackyLiuisme/jackypractise.git" />
-    <option name="localBranch" value="master" />
-    <option name="revision" value="1aaf557a6f7bb024d2ee369447962337a440608f" />
+    <option name="localBranch" value="localpractise" />
+    <option name="revision" value="c2e2c6b23a4263b19cf51f1524832426710c0375" />
   </component>
 </project>
