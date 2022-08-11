@@ -13,6 +13,7 @@ public class ClassLoadTest {
                     if (is == null) {
                         return super.loadClass(name);
                     }
+
                 byte[] b = new byte[is.available()];
                     is.read(b);
                     return defineClass(name,b,0,b.length);
